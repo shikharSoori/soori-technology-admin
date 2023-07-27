@@ -1,0 +1,116 @@
+/* main-page wrapper */
+.page-wrapper {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    border-width: 1px 1px 0px 1px;
+    border-style: solid;
+    border-color: #dee1e6;
+  }
+  /* header-content start */
+  .page-wrapper .header-content {
+    padding: 20px;
+    border-radius: 0px 5px 0px 0px;
+  }
+  
+  .page-wrapper .header-content .title-container .title {
+    font-family: "Rajdhani";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 46px;
+    line-height: 59px;
+    letter-spacing: -2px;
+    color: #424143;
+  }
+  .page-wrapper .header-content .title-container .title h1{
+    padding: 0;
+    margin: 0;
+  }
+  .page-wrapper .header-content .title-container .sub-title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #424143;
+  }
+  
+  .page-wrapper .header-content .title-container .sub-title p{
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+  }
+  
+  
+  .page-wrapper .header-content .search-wrapper {
+    width: 25%;
+  }
+  
+  .page-wrapper .header-content .search-wrapper .input-group input {
+    background: #ffffff;
+    border: 1px solid #dee1e6;
+    border-radius: 4px 0 0 4px;
+  }
+  .page-wrapper .header-content .search-wrapper .input-group input:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+  .page-wrapper
+    .header-content
+    .search-wrapper
+    .input-group
+    .input-group-prepend
+    span {
+    background: #f0f0f0;
+    border: 1px solid #dee1e6;
+    border-radius: 0px 4px 4px 0px;
+  }
+  .page-wrapper
+    .header-content
+    .search-wrapper
+    .input-group
+    .input-group-prepend
+    span
+    svg {
+    color: #1e2125;
+  }
+  /* header-content end */
+  
+  /* export buttons */
+  
+  .page-wrapper .export-buttons-wrapper {
+    text-align: right;
+  }
+  .page-wrapper .export-buttons-wrapper .export-buttons-container {
+    margin: 0 20px 0 0;
+    padding: 4px 0;
+  }
+  .page-wrapper .export-buttons-wrapper .export-buttons-container .export-button {
+    border: none;
+    background: transparent;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.32px;
+    padding: 6px;
+    color: #424143;
+  }
+  .page-wrapper
+    .export-buttons-wrapper
+    .export-buttons-container
+    .export-button:focus {
+    border: none;
+    outline: none;
+  }
+  @media (max-width: 1100px) {
+    .page-wrapper .header-content .title-container {
+      width: 25%;
+    }
+  
+    .page-wrapper .header-content .search-wrapper {
+      width: 40%;
+    }
+  }
+  

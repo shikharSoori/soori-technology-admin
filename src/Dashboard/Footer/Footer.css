@@ -1,0 +1,18 @@
+.footer {
+  bottom: 0;
+  padding: 0px calc(10px / 2);
+  right: 0;
+  color: #fff;
+  height: 24px;
+  background-color: #bf202f;
+  position: fixed;
+  left: 250px;
+  transition: all 0.4s;
+}
+
+.footer .footer-container {
+  overflow: auto;
+}
+.vertical-collapsed .footer {
+  left: 70px;
+}
