@@ -13,16 +13,16 @@ import { addBrand } from "../Redux/thunk";
 import { useHistory } from "react-router-dom";
 import { errorFunction, successFunction } from "../../../Component/Alert/Alert";
 
-const AddBrand = () => {
+const AddBrand = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const initialValues = {
-    brandName: "",
+    brand: "",
     description: "",
     photo: null,
   };
   const validationSchema = Yup.object().shape({
-    brandName: Yup.string()
+    brand: Yup.string()
       .required("Required!")
       .min(3, "Brand Name must be at least 3 characters."),
     description: Yup.string()
@@ -31,14 +31,13 @@ const AddBrand = () => {
   });
   const [photo, setPhoto] = useState(null);
   const [photo1, setPhoto1] = useState(null);
-  const [photo2, setPhoto2] = useState(null);
 
   const onSubmit = (values) => {
     dispatch(addBrand(values))
       .unwrap()
       .then(() => {
         successFunction("Brand Added Successfully");
-        history.push("/brand");
+        setShowModal(false);
       })
       .catch((error) => {
         errorFunction(error);
@@ -71,21 +70,35 @@ const AddBrand = () => {
                     }}
                     displayImage={<Thumb thumb={photo ? photo : "abc"} />}
                   />
+                  <Dropzone
+                    name={"photo1"}
+                    label={"Photo 1"}
+                    removePhoto={() => {
+                      setPhoto1(null);
+                    }}
+                    onChange={(event) => {
+                      formik.setFieldValue("a", event.target.files[0]);
+                      let reader = new FileReader();
+                      reader.readAsDataURL(event.target.files[0]);
+                      reader.onloadend = () => setPhoto1([reader.result]);
+                    }}
+                    displayImage={<Thumb thumb={photo1 ? photo1 : "abc"} />}
+                  />
                 </div>
 
                 <div className="col-9">
                   <TextField
                     type="text"
-                    name="brandName"
+                    name="brand"
                     label="Brand Name"
                     placeholder="Brand Name"
                     className="login"
                     required
                     formikRequired={
-                      formik?.errors?.brandName && formik?.touched?.brandName
+                      formik?.errors?.brand && formik?.touched?.brand
                     }
                     onChange={(e) =>
-                      formik.setFieldValue("brandName", e.target.value)
+                      formik.setFieldValue("brand", e.target.value)
                     }
                   />
                   {/* <div className="row">
@@ -139,7 +152,7 @@ const AddBrand = () => {
                       formik.setFieldValue("supportLink", e.target.value)
                     } 
                   />*/}
-                 
+
                   <div className="d-flex justify-content-center w-100">
                     <button type="submit" className="btn">
                       {"Create"}

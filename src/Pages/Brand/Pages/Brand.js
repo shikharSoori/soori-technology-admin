@@ -9,6 +9,10 @@ const Brand = () => {
   const types = "Brand";
   const [showModal, setShowModal] = useState(false);
 
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
       <CommonPageHeader
@@ -16,6 +20,7 @@ const Brand = () => {
         subTitle={title}
         setShowModal={setShowModal}
       />
+      
       {showModal && (
         <Suspense fallback={<div></div>}>
           <Modal
@@ -25,7 +30,7 @@ const Brand = () => {
             types={types}
             size={"modal-lg "}
           >
-            <AddBrand />
+            <AddBrand setShowModal={setShowModal}/>
           </Modal>
         </Suspense>
       )}

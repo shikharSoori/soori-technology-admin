@@ -5,12 +5,10 @@ import * as API from "./api";
 export const addBrand = createAsyncThunk(
   "brand/addBrand",
   async (values, { rejectWithValue }) => {
-    const { brandName, description } = values;
-    console.log(brandName, "sdfj");
+    const { brand, description } = values;
+    console.log(brand, "sdfj");
     try {
-      const body = { brandName, description };
-      console.log(body, "sddddddddfj");
-
+      const body = { brand, description };
       const { data } = await API.addBrand(body);
       return data;
     } catch (error) {
