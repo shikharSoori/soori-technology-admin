@@ -16,3 +16,15 @@ export const addBrand = createAsyncThunk(
     }
   }
 );
+
+export const getAllBrand = createAsyncThunk(
+  "product-app/brand",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await API.getAllBrand();
+      return data;
+    } catch (error) {
+      return rejectWithValue("Failed to getAllBrand");
+    }
+  }
+);
